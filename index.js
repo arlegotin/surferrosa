@@ -799,19 +799,6 @@ class Instrument extends Logger {
         this.connectInSeries([this.noise]).plugInto(this.context.getDestination());
     }
 
-    // clone() {
-    //     return this.constructor({
-    //         temp: this.temp,
-    //         oct: this.base_octave,
-    //         osc = this.osc.getSettings(),
-    //         filter = this.filter.getSettings(),
-    //         noise = this.noise.getSettings(),
-    //         envelopes = {},
-    //         LFOs = {},
-    //         masterGain = 1
-    //     });
-    // }
-
     connectInSeries(series) {
         return series.reduce((left, right) => {
             if (left === null) {
