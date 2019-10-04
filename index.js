@@ -1,3 +1,5 @@
+const AudioContext = window.AudioContext || window.webkitAudioContext || null;
+
 class Logger {
 
     constructor(name = 'unknown') {
@@ -1053,8 +1055,8 @@ class Surferrosa extends Logger {
 
     constructor() {
         super('Surferrosa');
-        this.album = new Serializator('Album', Melody);
-        this.band = new Serializator('Band', Instrument);
+        this.song = new Serializator('Album', Melody);
+        this.instrument = new Serializator('Band', Instrument);
     }
 
     play(map, loop = 1) {
@@ -1062,8 +1064,8 @@ class Surferrosa extends Logger {
 
         for (let instrumentName in map) {
             instrumentsAndMelodies.push({
-                instrument: this.band.get(instrumentName),
-                melody: this.album.get(map[instrumentName]).loop(loop).copy(),
+                instrument: this.instrument.get(instrumentName),
+                melody: this.song.get(map[instrumentName]).loop(loop).copy(),
             });
         }
 
