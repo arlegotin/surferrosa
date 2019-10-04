@@ -169,7 +169,7 @@ class Melody extends Logger {
     }
 
     arpeggio(arp) {
-        return this.repeat(arp.length).tr(arp);
+        return this.repeat(arp.length).transpose(arp);
     }
 
     chord6(tune = 'maj') {
