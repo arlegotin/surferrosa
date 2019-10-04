@@ -1,2 +1,5 @@
 
 .DS_Store
+.idea/$CACHE_FILE$
+.idea/php.xml
+.idea/workspace.xml
