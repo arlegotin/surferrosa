@@ -1,4 +1,6 @@
-const AudioContext = window.AudioContext || window.webkitAudioContext || null;
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const audioContext = new AudioContext();
 
 class Logger {
 
@@ -287,13 +289,13 @@ class Serializator extends Logger {
 
 class AudioBase extends Logger {
 
-    constructor(name, context = new AudioContext()) {
+    constructor(name) {
         super(name);
 
         this.MS_PER_SECOND = 1000;
         this.MIN_VALUE = 0.0001;
 
-        this.context = context;
+        this.context = audioContext;
         this.is_active = true;
     }
 
@@ -340,7 +342,7 @@ class AudioBase extends Logger {
 class Context extends AudioBase {
 
     constructor() {
-        super('Context', new AudioContext());
+        super('Context');
     }
 
     getDestination() {
